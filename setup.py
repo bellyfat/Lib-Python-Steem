@@ -12,12 +12,14 @@ from shutil import rmtree
 from setuptools import find_packages, setup, Command
 from setuptools.command.test import test as TestCommand
 
+
 # Package meta-data.
 NAME = 'steem'
 DESCRIPTION = 'Official python steem library.'
 URL = 'https://github.com/steemit/steem-python'
 EMAIL = 'john@steemit.com'
 AUTHOR = 'Steemit'
+
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -94,7 +96,6 @@ class PyTest(TestCommand):
         errno = pytest.main(self.pytest_args)
         sys.exit(errno)
 
-
 class UploadCommand(Command):
     """Support setup.py upload."""
 
@@ -127,7 +128,6 @@ class UploadCommand(Command):
 
         sys.exit()
 
-
 # Where the magic happens:
 setup(
     name=NAME,
@@ -156,6 +156,7 @@ setup(
     include_package_data=True,
     license='MIT',
 
+    
     classifiers=[
             # Trove classifiers
             # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
