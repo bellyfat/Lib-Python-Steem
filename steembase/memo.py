@@ -36,7 +36,6 @@ def get_shared_secret(priv, pub):
     res_hex = '0' * (64 - len(res_hex)) + res_hex
     return hashlib.sha512(unhexlify(res_hex)).hexdigest()
 
-
 def init_aes(shared_secret, nonce):
     """ Initialize AES instance
 
@@ -118,6 +117,7 @@ def decode_memo(priv, message):
         :rtype: str
         :raise ValueError: if message cannot be decoded as valid UTF-8
                string
+               
 
     """
     " decode structure "
