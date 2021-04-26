@@ -35,6 +35,7 @@ class Testcases(unittest.TestCase):
             base58encode('80f3a375e00cc5147f30bee97bb5d54b31a12eee148a1ac3'
                          '1ac9edc4ecd13bc1f80cc8148e')
         ])
+        
 
     def test_gphBase58CheckEncode(self):
         self.assertEqual([
@@ -67,6 +68,7 @@ class Testcases(unittest.TestCase):
             "d5d15fa68a644ecb0806b49a",
             "03e7595c3e6b58f907bee951dc29796f3757307e70"
             "0ecf3d09307a0cc4a564eba3",
+          
         ], [
             gphBase58CheckDecode(
                 "6dumtt9swxCqwdPZBGXh9YmHoEjFFnNfwHaTqRbQTghGAY2gRz"),
@@ -89,6 +91,7 @@ class Testcases(unittest.TestCase):
         for x in re.split('\s+', ml):
             self.assertEqual(x, gphBase58CheckDecode(gphBase58CheckEncode(x)))
 
+            
     def test_Base58CheckDecode(self):
         self.assertEqual([
             "02e649f63f8e8121345fd7f47d0d185a3ccaa84"
@@ -137,6 +140,7 @@ class Testcases(unittest.TestCase):
         for x in re.split('\s+', ml):
             self.assertEqual(x, base58CheckDecode(base58CheckEncode(0x80, x)))
 
+            
     def test_Base58(self):
         self.assertEqual([
             format(
@@ -159,6 +163,7 @@ class Testcases(unittest.TestCase):
                 Base58(
                     "b84abd64d66ee1dd614230ebbe9d9c6d66d78d93927c395196666762e"
                     "9ad69d8"), "wif")
+          
         ], [
             "5HqUkGuo62BfcJU5vNhTXKJRXuUi9QSE6jp8C3uBJ2BVHtB8WSd",
             "5JWcdkhL3w4RkVPcZMdJsjos22yB5cSkPExerktvKnRNZR5gx1S",
