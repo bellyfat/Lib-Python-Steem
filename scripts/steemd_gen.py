@@ -521,6 +521,7 @@ api_methods = [
     },
 ]
 
+
 method_template = """
 def {method_name}(self{method_arguments}){return_hints}:
     return self.exec('{method_name}'{call_arguments}, api='{api}')
@@ -538,6 +539,7 @@ def steemd_codegen():
         if endpoint['params'] == 0:
             continue
 
+            
         return_hints = ''
         if endpoint.get('returns'):
             return_hints = ' -> %s' % endpoint.get('returns')
@@ -552,12 +554,14 @@ def steemd_codegen():
         sys.stdout.write(fn)
 
 
+        
 def find_api(method_name):
     """ Given a method name, find its API. """
     endpoint = first(where(api_methods, method=method_name))
     if endpoint:
         return endpoint.get('api')
 
+    
 
 def inspect_steemd_implementation():
     """ Compare implemented methods with current live deployment of steemd. """
@@ -573,6 +577,7 @@ def inspect_steemd_implementation():
             for x in err['data']['stack'][0]['data']['api'].keys()
         ]
 
+        
     avail_methods = set(avail_methods)
 
     print("\nMissing Methods:")
@@ -581,6 +586,7 @@ def inspect_steemd_implementation():
     print("\nLikely Deprecated Methods:")
     pprint(_methods - avail_methods)
 
+    
 
 if __name__ == '__main__':
     steemd_codegen()
