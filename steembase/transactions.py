@@ -23,7 +23,9 @@ from .types import (
     Uint32,
 )
 
+
 log = logging.getLogger(__name__)
+
 
 try:
     import secp256k1
@@ -82,6 +84,7 @@ class SignedTransaction(GrapheneObject):
                     ('extensions', kwargs['extensions']),
                     ('signatures', kwargs['signatures']),
                 ]))
+            
 
     def recoverPubkeyParameter(self, digest, signature, pubkey):
         """ Use to derive a number that allows to easily recover the
@@ -101,6 +104,7 @@ class SignedTransaction(GrapheneObject):
                     return i
         return None
 
+    
     def derSigToHexSig(self, s):
         """ Format DER to HEX signature
         """
@@ -118,6 +122,7 @@ class SignedTransaction(GrapheneObject):
         x_str = ecdsa.util.number_to_string(p.x(), order)
         return compat_bytes(compat_chr(2 + (p.y() & 1)), 'ascii') + x_str
 
+    
     # FIXME(sneak) this should be reviewed for correctness
     def recover_public_key(self, digest, signature, i):
         """ Recover the public key from the the signature
@@ -154,6 +159,7 @@ class SignedTransaction(GrapheneObject):
             signature, digest, sigdecode=ecdsa.util.sigdecode_string):
             return None
         return ecdsa.VerifyingKey.from_public_point(Q, curve=ecdsa.SECP256k1)
+    
 
     def getKnownChains(self):
         return known_chains
@@ -188,6 +194,7 @@ class SignedTransaction(GrapheneObject):
 
         # restore signatures
         self.data["signatures"] = sigs
+        
 
     def verify(self, pubkeys=[], chain=None):
         if not chain:
@@ -240,6 +247,7 @@ class SignedTransaction(GrapheneObject):
                 raise Exception("Signature for %s missing!" % f)
         return pubKeysFound
 
+    
     def _is_canonical(self, sig):
         return (not (sig[0] & 0x80)
                 and not (sig[0] == 0 and not (sig[1] & 0x80))
