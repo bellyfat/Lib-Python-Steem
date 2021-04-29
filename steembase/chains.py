@@ -14,6 +14,7 @@ known_chains = {
         "steem_symbol": "GOLOS",
         "sbd_symbol": "GBG",
         "vests_symbol": "GESTS",
+        
     },
     "TESTS": {
         "chain_id":
