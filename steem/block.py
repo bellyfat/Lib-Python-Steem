@@ -12,8 +12,7 @@ class Block(dict):
             accessing a RPC
 
     """
-
-    def __init__(self, block, steemd_instance=None):
+   def __init__(self, block, steemd_instance=None):
         self.steemd = steemd_instance or shared_steemd_instance()
         self.block = block
 
@@ -30,9 +29,11 @@ class Block(dict):
 
     def __getitem__(self, key):
         return super(Block, self).__getitem__(key)
+    
 
     def items(self):
         return super(Block, self).items()
+    
 
     def time(self):
         return parse_time(self['timestamp'])
