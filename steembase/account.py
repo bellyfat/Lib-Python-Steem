@@ -121,7 +121,6 @@ class BrainKey(object):
             brainkey[j] = dict_lines[wIdx]
         return " ".join(brainkey).upper()
 
-
 class Address(object):
     """ Address class
 
