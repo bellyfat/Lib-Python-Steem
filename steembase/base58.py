@@ -51,7 +51,6 @@ class Base58(object):
         * etc.
 
     """
-
     def __init__(self, data, prefix=PREFIX):
         self._prefix = prefix
         if all(c in string.hexdigits for c in data):
