@@ -12,7 +12,6 @@ from shutil import rmtree
 from setuptools import find_packages, setup, Command
 from setuptools.command.test import test as TestCommand
 
-
 # Package meta-data.
 NAME = 'steem'
 DESCRIPTION = 'Official python steem library.'
@@ -156,7 +155,6 @@ setup(
     include_package_data=True,
     license='MIT',
 
-    
     classifiers=[
             # Trove classifiers
             # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
